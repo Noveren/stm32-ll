@@ -22,7 +22,7 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+extern int user(void);
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -97,12 +97,8 @@ int main(void)
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
   /* USER CODE BEGIN 2 */
-  LL_GPIO_InitTypeDef GPIO_InitStruct = {
-    .Pin = LL_GPIO_PIN_4,
-    .Mode = LL_GPIO_MODE_OUTPUT_2MHz,
-    .OutputType = LL_GPIO_OUTPUT_PUSHPULL,
-  };
-  LL_GPIO_Init(GPIOB, &GPIO_InitStruct);
+  // TODO 可以考虑对 user 的返回值进行错误处理
+  user();
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -110,8 +106,6 @@ int main(void)
   while (1)
   {
     /* USER CODE END WHILE */
-    LL_mDelay(1000);
-    LL_GPIO_TogglePin(GPIOB, LL_GPIO_PIN_4);
     /* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */

@@ -20,11 +20,14 @@ target("demo") do
 
     add_includedirs(
         "$(env GCC_ARM_NONE_EABI_ROOT)/arm-none-eabi/include",
-        "Inc"
+        "User/Inc"
     )
 
     -- Makefile 中的文件已导入
-    add_files()
+    add_files(
+        "Core/Src/core.cc",
+        "User/Src/user.cc"
+    )
 
     after_build(function(target)
         import("core.base.task").run("project", {kind="compile_commands"})

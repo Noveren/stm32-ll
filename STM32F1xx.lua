@@ -61,7 +61,7 @@ function __config(target, makefile)
     for _, v in ipairs(makefile.defines) do
         target:add("defines", v)
     end
-    target:add("cflags", cpu, ins,
+    target:add("cxflags", cpu, ins,
         "-Wall", "-fdata-sections", "-ffunction-sections",
         opt,
         { force = true }
@@ -73,13 +73,16 @@ function __config(target, makefile)
     )
     target:add("ldflags", cpu, ins,
         "-T./STM32F103C8TX_FLASH.ld",
-        "-specs=nano.specs", "-lc", "-lm", "-lnosys", "-Wl,--gc-sections",
+        "-specs=nosys.specs",
+        -- "-specs=nano.specs",
+        "-lc", "-lm", "-lnosys", "-Wl,--gc-sections",
         { force = true }
     )
     target:add("includedirs",
         "Drivers/CMSIS/Device/ST/STM32F1xx/Include",
         "Drivers/CMSIS/Include",
-        "Drivers/STM32F1xx_HAL_Driver/Inc"
+        "Drivers/STM32F1xx_HAL_Driver/Inc",
+        "Core/Inc"
     )
     target:add("files",
         "./startup_stm32f103xb.s", { rule = "asm.build" }
