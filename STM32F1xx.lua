@@ -73,9 +73,9 @@ function __config(target, makefile)
     )
     target:add("ldflags", cpu, ins,
         "-T./STM32F103C8TX_FLASH.ld",
-        -- "-specs=nosys.specs",
+        "-specs=nosys.specs",
         "-specs=nano.specs",
-        "-lc", "-lm", "-lnosys", "-Wl,--gc-sections",
+        "-lc", "-lnosys", "-Wl,--gc-sections",
         { force = true }
     )
     target:add("includedirs",
