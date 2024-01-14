@@ -107,3 +107,12 @@ create ok!
 The size of bin is 6560 bytes
 ```
 
+改为 C 实现
+
+```
+   text    data     bss     dec     hex filename
+   1528      12    1564    3104     c20 build\demo.elf
+The size of bin is 1540 bytes
+```
+
+有可能是  "-specs=nosys.specs" 的原因

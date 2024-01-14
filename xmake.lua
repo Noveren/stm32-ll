@@ -25,8 +25,8 @@ target("demo") do
 
     -- Makefile 中的文件已导入
     add_files(
-        "Core/Src/core.cc",
-        "User/Src/user.cc"
+        "Core/Src/core.c",
+        "User/Src/user.c"
     )
 
     after_build(function(target)

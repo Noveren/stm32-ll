@@ -1,11 +1,10 @@
 
-#include "core.hh"
+#include "core.h"
 #include "stm32f1xx_ll_gpio.h"
 #include "stm32f1xx_ll_utils.h"
 
 
-void 
-LED::toggle(void) {
+void led_toggle(void) {
     LL_GPIO_TogglePin(GPIOB, LL_GPIO_PIN_4);
 }
 
