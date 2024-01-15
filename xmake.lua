@@ -37,7 +37,8 @@ target("demo") do
         "Drivers/CMSIS/Include",
         "Drivers/CMSIS/Device/ST/STM32F1xx/Include",
         "Drivers/STM32F1xx_HAL_Driver/Inc",
-        "Core/Inc"
+        "Core/Inc",
+        "User/Inc"
     )
     add_files(
         "startup_stm32f103xb.s",
@@ -53,7 +54,7 @@ target("demo") do
     add_files(
         "Drivers/STM32F1xx_HAL_Driver/Src/*.c",
         "Core/Src/*.c",
-        "Core/Src/core.cc",
+        "Core/Src/resource.cc",
         {
             defines = {
                 "STM32F1",
@@ -75,7 +76,7 @@ target("demo") do
         "-mcpu=cortex-m3",
         "-mthumb",
         "-Wall",
-        "-Os",
+        "-Og",
         "-fdata-sections",
         "-ffunction-sections",
         { force = true }

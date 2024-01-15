@@ -1,12 +1,15 @@
 
-#include "core.hh"
+#include "resource.hh"
+namespace res = resource;
+namespace ins = res::instance;
 
 extern "C" {
     int user(void) {
-        LED led = {};
+        auto LED = &ins::_PB4;
+        LED->set_low();
         while (true) {
-            led.toggle();
-            delay(1000);
+            ins::_SysTick.mDelay(2000);
+            LED->toggle();
         }
         return 0;
     }
