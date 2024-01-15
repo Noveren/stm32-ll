@@ -2,5 +2,9 @@
 
 #include <stdint.h>
 
-void led_toggle(void);
+class LED {
+    public:
+        void toggle(void);
+};
+
 void delay(uint32_t ms);
